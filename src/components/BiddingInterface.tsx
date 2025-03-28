@@ -16,13 +16,34 @@ const BiddingInterface: React.FC<BiddingInterfaceProps> = ({ artwork, onPlaceBid
     const value = parseInt(e.target.value, 10);
     setBidAmount(isNaN(value) ? minBid : value);
   };
-  
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (bidAmount >= minBid) {
-      onPlaceBid(bidAmount);
+      const bidData = {
+        artworkId: artwork.id,
+        title: artwork.title,
+        image: artwork.image, 
+        artists: artwork.artist || "Unknown",
+        status: artwork.status || "Pending", // ✅ Fallback to "Pending" if status is undefined
+        auctionEnds: artwork.auctionEnds,
+        currentBid: artwork.currentBid,
+        bidAmount,
+        bidder: "User123", // Replace with actual user data
+      };
+  
+      // Retrieve existing bids from localStorage
+      const existingBids = JSON.parse(localStorage.getItem("bids") || "[]");
+  
+      // Add new bid
+      const updatedBids = [bidData, ...existingBids];
+      localStorage.setItem("bids", JSON.stringify(updatedBids));
+  
+      window.location.href = "/list"; // Redirect
     }
   };
+  
+  
 
   const getBidIncrements = () => {
     return [

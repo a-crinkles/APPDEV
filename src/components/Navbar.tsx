@@ -129,6 +129,12 @@ const Navbar = () => {
           >
             About
           </Link>
+          <Link 
+            to="/list" 
+            className={`nav-link ${location.pathname === '/list' ? 'text-gallery-accent after:w-full' : ''}`}
+          >
+            List of Bids
+          </Link>
         </nav>
         
         {/* Search and Profile */}
@@ -258,6 +264,12 @@ const Navbar = () => {
               className="flex justify-between items-center text-xl font-medium py-2 border-b border-gallery-border"
             >
               About <ChevronRight size={18} />
+            </Link>
+            <Link 
+              to="/list" 
+              className="flex justify-between items-center text-xl font-medium py-2 border-b border-gallery-border"
+            >
+              List of Bids <ChevronRight size={18} />
             </Link>
             <Link 
               to="/profile" 

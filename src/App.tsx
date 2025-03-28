@@ -18,6 +18,7 @@ import AuctionsPage from "./pages/client/AuctionsPage";
 import AuctionPage from "./pages/client/AuctionPage";
 import ArtistsPage from "./pages/client/ArtistsPage";
 import ArtistDetailPage from "./pages/client/ArtistDetailPage";
+import ListOfBidsPage from "./pages/client/ListOfBidsPage";
 import AboutPage from "./pages/client/AboutPage";
 import NotFound from "./pages/client/NotFound";
 import ForgotPassword from "./pages/client/ForgotPassword";
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/artists" element={<ArtistsPage />} />
             <Route path="/artist/:id" element={<ArtistDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/list" element={<ListOfBidsPage />} />
             
             {/* Protected Routes */}
             <Route path="/profile" element={

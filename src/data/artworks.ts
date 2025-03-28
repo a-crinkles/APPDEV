@@ -31,6 +31,7 @@ export interface Artwork {
   auctionEnds: Date;
   featured: boolean;
   collection?: string;
+  status?: "Not Ended" | "Active" | "Ended";
 }
 
 // Sample artwork data with real image URLs
